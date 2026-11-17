@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up | LibraryReplica</title>
+  <meta name="description" content="Create a free LibraryReplica student account.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="auth-wrap">
+      <aside class="auth-aside">
+        <h2>Your academic world, one book away.</h2>
+        <p>Create a free student account to save a wishlist, keep a cart and place simulated orders.</p>
+        <ul>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Personal dashboard and recommendations</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Wishlist and order history</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>No payment details required</li>
+        </ul>
+      </aside>
+      <section class="auth-panel">
+        <div class="card auth-card">
+          <h1>Create account</h1>
+          <p class="sub">It only takes a minute.</p>
+          <div id="signup-alert" class="form-alert" role="alert"></div>
+          <form id="signup-form" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full name</label>
+              <input class="input" id="fullName" type="text" autocomplete="name" required>
+              <div class="form-error" data-error-for="fullName" aria-live="polite"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input class="input" id="studentId" type="text" autocomplete="off" required>
+                <div class="form-error" data-error-for="studentId" aria-live="polite"></div>
+              </div>
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <select class="input" id="semester" required><option value="">Select…</option></select>
+                <div class="form-error" data-error-for="semester" aria-live="polite"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">University email</label>
+              <input class="input" id="email" type="email" autocomplete="email" placeholder="you@university.edu" required>
+              <div class="form-error" data-error-for="email" aria-live="polite"></div>
+            </div>
+            <div class="form-group">
+              <label for="department">Department</label>
+              <select class="input" id="department" required><option value="">Select your department…</option></select>
+              <div class="form-error" data-error-for="department" aria-live="polite"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="pw-field">
+                  <input class="input" id="password" type="password" autocomplete="new-password" required>
+                  <button class="pw-toggle" id="toggle-password" type="button" aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                </div>
+                <span class="form-hint">At least 8 characters.</span>
+                <div class="form-error" data-error-for="password" aria-live="polite"></div>
+              </div>
+              <div class="form-group">
+                <label for="confirm">Confirm password</label>
+                <input class="input" id="confirm" type="password" autocomplete="new-password" required>
+                <div class="form-error" data-error-for="confirm" aria-live="polite"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" id="signup-submit" type="submit">Create account</button>
+          </form>
+          <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/pages/signup.js"></script>
+</body>
+</html>

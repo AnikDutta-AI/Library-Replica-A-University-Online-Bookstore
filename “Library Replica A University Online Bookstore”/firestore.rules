@@ -1,0 +1,83 @@
+rules_version = '2';
+
+// LibraryReplica Firestore security rules.
+// Roles live ONLY in users/{uid}.role. The first admin is created by editing that field
+// in the Firebase Console (the Console bypasses these rules). Clients can never set it.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- Helpers ----------
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Students may only LOWER a book's stock (checkout), never below 0, and touch nothing else.
+    function isStockDecrease() {
+      return isSignedIn()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stock'])
+        && request.resource.data.stock is int
+        && request.resource.data.stock >= 0
+        && request.resource.data.stock < resource.data.stock;
+    }
+
+    // ---------- users/{uid} ----------
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+
+      // Self-registration is always a student, with exactly the expected fields.
+      allow create: if isOwner(uid)
+        && request.resource.data.uid == uid
+        && request.resource.data.role == 'student'
+        && request.resource.data.keys().hasOnly(['uid', 'fullName', 'studentId', 'email', 'department', 'semester', 'role', 'photoURL', 'createdAt']);
+
+      // Owners may edit profile fields only; role, uid, email and createdAt are immutable.
+      allow update: if isOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['fullName', 'studentId', 'department', 'semester', 'photoURL']);
+
+      allow delete: if false;
+    }
+
+    // ---------- books/{bookId} ----------
+    match /books/{bookId} {
+      allow read: if true;
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || isStockDecrease();
+    }
+
+    // ---------- carts/{uid} and wishlists/{uid} ----------
+    match /carts/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    match /wishlists/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // ---------- orders/{orderId} ----------
+    match /orders/{orderId} {
+      allow create: if isSignedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.orderId == orderId
+        && request.resource.data.orderStatus == 'Placed'
+        && request.resource.data.paymentMethod in ['COD', 'UPI_SIMULATED', 'CARD_SIMULATED'];
+
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+
+      // Admin may change only the two status fields.
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['orderStatus', 'paymentStatus']);
+
+      allow delete: if false;
+    }
+  }
+}

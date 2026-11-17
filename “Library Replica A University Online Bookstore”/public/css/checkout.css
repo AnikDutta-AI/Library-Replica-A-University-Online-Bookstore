@@ -1,0 +1,46 @@
+/* Checkout, order confirmation, order history */
+.checkout-layout { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 2rem; align-items: start; padding-bottom: 2rem; }
+.checkout-form fieldset { border: 0; padding: 0; margin: 0 0 1.5rem; }
+.checkout-form legend { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; padding: 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.form-grid .full { grid-column: 1 / -1; }
+.pay-options { display: grid; gap: .75rem; }
+.pay-option { display: flex; gap: .85rem; align-items: center; padding: .9rem 1rem; border: 2px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); background: var(--surface); }
+.pay-option:hover { border-color: var(--gold-500); }
+.pay-option:has(input:checked) { border-color: var(--gold-500); background: rgba(201,162,39,.08); }
+.pay-option input { width: 18px; height: 18px; accent-color: var(--gold-500); }
+.pay-option i { font-size: 1.3rem; color: var(--gold-500); width: 28px; text-align: center; }
+.pay-option small { display: block; color: var(--text-muted); }
+.sim-banner { margin-top: 1rem; padding: .8rem 1rem; border-radius: var(--radius-sm); border: 2px dashed var(--danger); color: var(--danger); font-weight: 700; font-size: .9rem; background: rgba(214,69,69,.06); }
+.sim-banner small { display: block; font-weight: 500; color: var(--text-muted); margin-top: .2rem; }
+.mini-items { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .75rem; max-height: 320px; overflow: auto; }
+.mini-items li { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: .7rem; align-items: center; font-size: .9rem; }
+.mini-items .cart-thumb { width: 48px; }
+.mini-items .cover-title { display: none; }
+.mini-items .t { font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mini-items .q { color: var(--text-muted); font-size: .8rem; }
+
+/* Confirmation */
+.confirm-hero { text-align: center; padding: 2rem 1rem 1rem; }
+.confirm-hero .tick { width: 72px; height: 72px; margin: 0 auto 1rem; border-radius: 50%; display: grid; place-items: center; background: rgba(30,158,90,.14); color: var(--success); font-size: 2rem; animation: pop .45s ease; }
+.order-id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-alt); padding: .2rem .6rem; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.info-grid h2 { font-family: var(--font-body); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); }
+.info-grid p { margin: 0 0 .15rem; }
+.order-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.order-table th { text-align: left; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); padding: .6rem .5rem; border-bottom: 2px solid var(--border); }
+.order-table td { padding: .7rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.order-table .r { text-align: right; }
+.totals-box { margin-left: auto; width: min(320px, 100%); margin-top: 1rem; }
+.confirm-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+/* History */
+.order-card { padding: 0; overflow: hidden; margin-bottom: 1rem; }
+.order-card summary { list-style: none; cursor: pointer; padding: 1rem 1.25rem; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto auto; gap: 1rem; align-items: center; }
+.order-card summary::-webkit-details-marker { display: none; }
+.order-card summary:hover { background: var(--bg-alt); }
+.order-card summary .chev { transition: var(--transition); color: var(--text-muted); }
+.order-card[open] summary .chev { transform: rotate(180deg); }
+.order-card .body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); }
+.order-card .oid { font-weight: 700; word-break: break-all; }
+.order-card .odate { color: var(--text-muted); font-size: .85rem; }

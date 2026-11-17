@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | LibraryReplica</title>
+  <meta name="description" content="Your LibraryReplica student dashboard.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="container">
+      <section class="welcome" aria-labelledby="welcome-title">
+        <h1 id="welcome-title">Welcome</h1>
+        <p id="welcome-sub">What would you like to read today?</p>
+        <form class="dash-search" id="dash-search" role="search">
+          <label class="sr-only" for="dash-q">Search books</label>
+          <input class="input" id="dash-q" type="search" placeholder="Search title, author, subject, ISBN…">
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Search</button>
+        </form>
+      </section>
+
+      <section class="stat-grid" aria-label="Your activity">
+        <a class="card card-hover stat-card" href="books.html"><div class="dept-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div><div><strong id="stat-books">–</strong><span>Books in the library</span></div></a>
+        <a class="card card-hover stat-card" href="cart.html"><div class="dept-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div><div><strong id="stat-cart">–</strong><span>Items in cart</span></div></a>
+        <a class="card card-hover stat-card" href="wishlist.html"><div class="dept-icon"><i class="fa-regular fa-heart" aria-hidden="true"></i></div><div><strong id="stat-wish">–</strong><span>Wishlist books</span></div></a>
+        <a class="card card-hover stat-card" href="order-history.html"><div class="dept-icon"><i class="fa-solid fa-box" aria-hidden="true"></i></div><div><strong id="stat-orders">–</strong><span>Orders placed</span></div></a>
+      </section>
+
+      <section class="dash-section" aria-labelledby="short-title">
+        <div class="section-title"><h2 id="short-title">Department Shortcuts</h2><a class="btn btn-outline btn-sm" href="departments.html">All departments</a></div>
+        <div id="shortcuts" class="chip-row"></div>
+      </section>
+
+      <section class="dash-section" aria-labelledby="rec-title"><div class="section-title"><h2 id="rec-title">Recommended for You</h2></div><div id="row-recommended" class="books-grid"></div></section>
+      <section class="dash-section" aria-labelledby="recent-title"><div class="section-title"><h2 id="recent-title">Recently Viewed</h2></div><div id="row-recent" class="books-grid"></div></section>
+
+      <div class="dash-split">
+        <section class="card" aria-labelledby="wl-title">
+          <div class="card-head"><h2 id="wl-title">Wishlist</h2><a class="btn btn-outline btn-sm" href="wishlist.html">View all</a></div>
+          <div id="wishlist-preview"></div>
+        </section>
+        <section class="card" aria-labelledby="ord-title">
+          <div class="card-head"><h2 id="ord-title">Recent Orders</h2><a class="btn btn-outline btn-sm" href="order-history.html">Order history</a></div>
+          <div id="orders-preview"></div>
+        </section>
+        <section class="card" aria-labelledby="acc-title">
+          <div class="card-head"><h2 id="acc-title">Quick Links</h2></div>
+          <div class="flex flex-wrap gap-1">
+            <a class="btn btn-primary btn-sm" href="cart.html"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Cart (<span id="cart-link-count">0</span>)</a>
+            <a class="btn btn-outline btn-sm" href="profile.html">Profile</a>
+            <a class="btn btn-outline btn-sm" href="order-history.html">Orders</a>
+          </div>
+        </section>
+      </div>
+
+      <section class="dash-section" aria-labelledby="best-title"><div class="section-title"><h2 id="best-title">Bestselling</h2><a class="btn btn-outline btn-sm" href="books.html?sort=popular">See more</a></div><div id="row-best" class="books-grid"></div></section>
+      <section class="dash-section" aria-labelledby="new-title"><div class="section-title"><h2 id="new-title">New Arrivals</h2><a class="btn btn-outline btn-sm" href="books.html?sort=newest">See more</a></div><div id="row-new" class="books-grid"></div></section>
+      <section class="dash-section" aria-labelledby="disc-title"><div class="section-title"><h2 id="disc-title">Discounted Books</h2><a class="btn btn-outline btn-sm" href="books.html?sort=price-asc">See more</a></div><div id="row-disc" class="books-grid"></div></section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

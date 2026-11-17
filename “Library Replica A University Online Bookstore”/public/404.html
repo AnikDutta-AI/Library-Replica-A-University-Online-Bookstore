@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | LibraryReplica</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="container text-center" style="padding:4rem 0">
+      <svg viewBox="0 0 240 150" width="240" role="img" aria-label="A lost book on a shelf" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 1rem;display:block">
+        <rect x="20" y="120" width="200" height="10" rx="3" fill="#0B1F3A"/>
+        <rect x="40" y="60" width="22" height="60" rx="3" fill="#13315C"/><rect x="66" y="48" width="22" height="72" rx="3" fill="#2F6FED"/>
+        <rect x="92" y="64" width="22" height="56" rx="3" fill="#C9A227"/><rect x="118" y="54" width="22" height="66" rx="3" fill="#13315C"/>
+        <g transform="rotate(24 176 118)"><rect x="162" y="56" width="22" height="64" rx="3" fill="#E0B93B"/></g>
+        <text x="120" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#C9A227">404</text>
+      </svg>
+      <h1>This page wandered off the shelf</h1>
+      <p class="text-muted">We could not find the page you were looking for. It may have moved or never existed.</p>
+      <div class="flex gap-2 flex-wrap" style="justify-content:center">
+        <a class="btn btn-primary" href="index.html">Back to Home</a>
+        <a class="btn btn-outline" href="books.html">Browse Books</a>
+        <a class="btn btn-outline" href="departments.html">Departments</a>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/pages/not-found.js"></script>
+</body>
+</html>

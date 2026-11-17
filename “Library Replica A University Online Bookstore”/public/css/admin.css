@@ -1,0 +1,28 @@
+/* Admin console */
+.admin-stats { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 1rem 0 2rem; }
+.admin-stats .stat-card { cursor: default; }
+.admin-stats .stat-card:hover { text-decoration: none; }
+.admin-stats small { display: block; color: var(--text-muted); font-size: .75rem; margin-top: .1rem; }
+.tabs { display: flex; gap: .3rem; border-bottom: 2px solid var(--border); margin-bottom: 1.5rem; overflow-x: auto; scrollbar-width: thin; }
+.tab-btn { background: none; border: 0; padding: .8rem 1.1rem; cursor: pointer; font-weight: 600; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: var(--transition); }
+.tab-btn:hover { color: var(--text); }
+.tab-btn[aria-selected="true"] { color: var(--navy-700); border-bottom-color: var(--gold-500); }
+[data-theme="dark"] .tab-btn[aria-selected="true"] { color: var(--gold-400); }
+.tab-panel { animation: fade .25s ease; }
+.panel-bar { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.panel-bar .input { max-width: 340px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+.data-table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; }
+.data-table th { text-align: left; padding: .75rem .8rem; background: var(--bg-alt); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); white-space: nowrap; }
+.data-table td { padding: .7rem .8rem; border-top: 1px solid var(--border); vertical-align: middle; }
+.data-table tr:hover td { background: var(--bg-alt); }
+.data-table .actions { display: flex; gap: .4rem; white-space: nowrap; }
+.data-table .title-cell { max-width: 320px; font-weight: 600; }
+.data-table select.input { min-height: 36px; padding: .25rem .5rem; width: auto; }
+.upload-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.progress { height: 14px; background: var(--border); border-radius: 999px; overflow: hidden; margin: 1rem 0 .4rem; }
+.progress > div { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-500), var(--gold-400)); transition: width .3s ease; }
+.tax-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.tax-grid ul { margin: .5rem 0 0; padding-left: 1.1rem; color: var(--text-muted); font-size: .9rem; }
+.book-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.book-form .full { grid-column: 1 / -1; }

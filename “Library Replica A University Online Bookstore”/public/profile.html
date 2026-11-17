@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | LibraryReplica</title>
+  <meta name="description" content="Manage your LibraryReplica profile.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="container">
+      <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="index.html">Home</a></li><li><a href="dashboard.html">Dashboard</a></li><li aria-current="page">Profile</li></ol></nav>
+      <div class="profile-layout">
+        <aside class="card profile-card">
+          <div class="profile-avatar" id="avatar" role="img" aria-label="Profile picture"></div>
+          <h1 id="p-name"></h1>
+          <p class="email" id="p-email"></p>
+          <p><span class="badge badge-gold" id="p-role"></span></p>
+          <input type="file" id="photo-input" class="hidden" accept="image/jpeg,image/png,image/webp" aria-label="Choose a profile photo">
+          <button class="btn btn-outline btn-sm" id="photo-btn" type="button"><i class="fa-solid fa-camera" aria-hidden="true"></i> Change photo</button>
+          <div class="profile-links">
+            <a class="btn btn-outline" href="wishlist.html"><i class="fa-regular fa-heart" aria-hidden="true"></i> My Wishlist</a>
+            <a class="btn btn-outline" href="order-history.html"><i class="fa-solid fa-box" aria-hidden="true"></i> Order History</a>
+            <button class="btn btn-danger" id="logout" type="button"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Logout</button>
+          </div>
+        </aside>
+        <section class="card profile-form" aria-labelledby="details-title">
+          <div class="flex between center-y flex-wrap gap-1 mb-2"><h2 id="details-title" style="margin:0">Your details</h2>
+            <div class="flex gap-1"><button class="btn btn-secondary btn-sm" id="edit-btn" type="button"><i class="fa-solid fa-pen" aria-hidden="true"></i> Edit Profile</button>
+            <button class="btn btn-outline btn-sm" id="password-btn" type="button"><i class="fa-solid fa-key" aria-hidden="true"></i> Change Password</button></div></div>
+          <form id="profile-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group"><label for="fullName">Full name</label><input class="input" id="fullName" type="text" disabled><div class="form-error" data-error-for="fullName" aria-live="polite"></div></div>
+              <div class="form-group"><label for="studentId">Student ID</label><input class="input" id="studentId" type="text" disabled><div class="form-error" data-error-for="studentId" aria-live="polite"></div></div>
+              <div class="form-group full"><label for="email">Email (cannot be changed)</label><input class="input" id="email" type="email" readonly></div>
+              <div class="form-group"><label for="department">Department</label><select class="input" id="department" disabled></select><div class="form-error" data-error-for="department" aria-live="polite"></div></div>
+              <div class="form-group"><label for="semester">Semester</label><select class="input" id="semester" disabled></select><div class="form-error" data-error-for="semester" aria-live="polite"></div></div>
+            </div>
+            <div class="profile-actions hidden" id="edit-actions">
+              <button class="btn btn-primary" type="submit" id="save-btn">Save changes</button>
+              <button class="btn btn-outline" type="button" id="cancel-btn">Cancel</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Details | LibraryReplica</title>
+  <meta name="description" content="Book details, sample PDF preview and related books on LibraryReplica.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="container">
+      <nav aria-label="Breadcrumb"><ol class="breadcrumb" id="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Book</li></ol></nav>
+      <div id="details-root"><div class="skeleton" style="height:480px" aria-hidden="true"></div></div>
+      <section class="section" id="related-section" hidden aria-labelledby="related-title">
+        <div class="section-title"><h2 id="related-title">Related Books</h2></div>
+        <div id="related-books" class="books-grid"></div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/pages/book-details.js"></script>
+</body>
+</html>

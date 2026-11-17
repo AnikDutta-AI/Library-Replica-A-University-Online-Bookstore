@@ -1,0 +1,12 @@
+/* Profile page */
+.profile-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 2rem; align-items: start; padding-bottom: 2rem; }
+.profile-card { text-align: center; }
+.profile-avatar { width: 112px; height: 112px; margin: 0 auto 1rem; border-radius: 50%; display: grid; place-items: center; font-size: 2.4rem; font-weight: 700; font-family: var(--font-heading); color: var(--gold-400); background: linear-gradient(135deg, var(--navy-700), var(--navy-900)); border: 4px solid var(--gold-500); overflow: hidden; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.profile-card h1 { font-size: 1.4rem; margin-bottom: .2rem; }
+.profile-card .email { color: var(--text-muted); font-size: .9rem; word-break: break-all; }
+.profile-links { display: grid; gap: .6rem; margin-top: 1.25rem; }
+.profile-form .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.profile-form .full { grid-column: 1 / -1; }
+.profile-form .input[readonly], .profile-form .input:disabled { background: var(--bg-alt); cursor: default; color: var(--text); opacity: 1; }
+.profile-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .5rem; }

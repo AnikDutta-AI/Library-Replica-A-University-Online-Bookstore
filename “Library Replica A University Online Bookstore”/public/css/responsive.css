@@ -1,0 +1,94 @@
+/* =====================================================================
+   Responsive layer (loaded LAST on every page)
+   desktop: full nav + multi-column grids + sidebar filters
+   tablet (<=1024): adaptive grids + collapsible filters
+   mobile (<=768): hamburger menu, 1-2 column grids, touch-friendly targets
+   ===================================================================== */
+
+@media (max-width: 1100px) {
+  .nav-links a { padding: .5rem .55rem; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 1.25rem; }
+  .cart-layout, .checkout-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: 1.5rem; }
+}
+
+/* ----- Tablet ----- */
+@media (max-width: 1024px) {
+  .nav-inner { flex-wrap: wrap; gap: .5rem .75rem; padding: .55rem 0; min-height: 64px; }
+  .nav-toggle { display: inline-grid; }
+  .nav-actions { margin-left: auto; }
+  .nav-links { display: none; order: 4; width: 100%; flex-direction: column; padding: .4rem 0 .6rem; border-top: 1px solid rgba(255,255,255,.12); }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: .8rem .75rem; min-height: 44px; }
+  .nav-links a.active { box-shadow: inset 3px 0 0 var(--gold-400); border-radius: var(--radius-sm); }
+  .nav-search { order: 3; max-width: none; flex: 1 1 100%; margin-left: 0; }
+  .catalogue { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .filters { position: static; max-height: none; display: none; }
+  .filters.open { display: block; }
+  .filter-toggle { display: inline-flex; margin-right: .5rem; }
+  .details { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .details-cover { max-width: 320px; margin-inline: auto; width: 100%; }
+  .cart-layout, .checkout-layout, .profile-layout { grid-template-columns: minmax(0, 1fr); }
+  .summary { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero::after { background: linear-gradient(180deg, rgba(11,31,58,.82), rgba(11,31,58,.6)); }
+  .profile-layout { gap: 1.25rem; }
+}
+
+/* ----- Mobile ----- */
+@media (max-width: 768px) {
+  .section { padding: 2.75rem 0; }
+  .hero { min-height: auto; }
+  .hero-inner { padding: 3rem 0; }
+  .hero-cta .btn { flex: 1 1 100%; }
+  .hero-stats { gap: 1.25rem; }
+  .btn { min-height: 44px; }
+  .btn-sm { min-height: 40px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .books-grid { --min: 220px; gap: 1rem; }
+  .account-btn .account-label { max-width: 90px; }
+  .form-grid, .profile-form .form-grid, .book-form { grid-template-columns: 1fr; }
+  .cart-item { grid-template-columns: 76px minmax(0, 1fr); }
+  .cart-thumb { width: 76px; }
+  .cart-side { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  .order-card summary { grid-template-columns: minmax(0, 1fr) auto; }
+  .order-card summary > :nth-child(2) { grid-column: 1 / 2; }
+  .order-card summary .chev { display: none; }
+  .dash-search { flex-direction: column; }
+  .welcome { padding: 1.4rem 1.1rem; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar-right { width: 100%; }
+  .toolbar-right .input, .toolbar select.input { width: 100% !important; }
+  .modal { padding: 1.25rem 1rem; max-height: 94vh; }
+  .modal-actions .btn { flex: 1 1 auto; }
+  .panel-bar .input { max-width: none; }
+  .footer-bottom { flex-direction: column; }
+  .back-to-top { bottom: 4.5rem; }
+  .order-table { font-size: .85rem; }
+}
+
+/* Demo badge stays visible on small screens as a floating label */
+@media (max-width: 640px) {
+  .demo-badge { position: fixed; left: .6rem; bottom: .6rem; z-index: 1200; margin: 0; box-shadow: var(--shadow-md); padding: .3rem .8rem; }
+  .toast-container { left: 1rem; right: 1rem; max-width: none; bottom: 3rem; }
+}
+
+@media (max-width: 480px) {
+  .container { width: min(1200px, 100% - 1.5rem); }
+  .brand-text { font-size: 1.1rem; }
+  .brand img { width: 32px; height: 32px; }
+  .books-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+  .footer-grid { grid-template-columns: 1fr; padding: 2rem 0 1rem; }
+  .nav-actions { gap: 0; }
+  .account-btn { padding: .3rem .6rem; }
+  .account-btn .account-label { display: none; }
+  .account-btn.logged-out .account-label { display: inline; max-width: 80px; font-size: .75rem; line-height: 1.1; white-space: normal; }
+  .section-title { margin-bottom: 1.25rem; }
+  .wl-item { grid-template-columns: 76px minmax(0, 1fr); }
+  .hero h1 { font-size: 2.1rem; }
+}
+
+@media (max-width: 380px) {
+  .books-grid { grid-template-columns: minmax(0, 1fr); }
+  .brand-text { display: none; }
+  .account-btn.logged-out .account-label { display: none; }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout | LibraryReplica</title>
+  <meta name="description" content="Checkout with simulated payment on LibraryReplica.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <div class="container">
+      <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="index.html">Home</a></li><li><a href="cart.html">Cart</a></li><li aria-current="page">Checkout</li></ol></nav>
+      <h1>Checkout</h1>
+      <div class="checkout-layout">
+        <form class="card checkout-form" id="checkout-form" novalidate>
+          <fieldset>
+            <legend>Delivery details</legend>
+            <div class="form-grid">
+              <div class="form-group"><label for="fullName">Full name</label><input class="input" id="fullName" type="text" autocomplete="name" required><div class="form-error" data-error-for="fullName" aria-live="polite"></div></div>
+              <div class="form-group"><label for="email">Email</label><input class="input" id="email" type="email" autocomplete="email" required><div class="form-error" data-error-for="email" aria-live="polite"></div></div>
+              <div class="form-group"><label for="studentId">Student ID</label><input class="input" id="studentId" type="text" required><div class="form-error" data-error-for="studentId" aria-live="polite"></div></div>
+              <div class="form-group"><label for="phone">Contact number</label><input class="input" id="phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="10-digit mobile number" required><div class="form-error" data-error-for="phone" aria-live="polite"></div></div>
+              <div class="form-group full"><label for="address">Delivery address</label><textarea class="input" id="address" rows="3" autocomplete="street-address" required></textarea><div class="form-error" data-error-for="address" aria-live="polite"></div></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment method</legend>
+            <div class="pay-options" role="radiogroup" aria-label="Payment method">
+              <label class="pay-option"><input type="radio" name="payment" value="COD" checked><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i><span><strong>Cash on Delivery</strong><small>Pay when the order arrives (simulated order)</small></span></label>
+              <label class="pay-option"><input type="radio" name="payment" value="UPI_SIMULATED"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span><strong>UPI (simulation)</strong><small>No UPI ID needed. Nothing is charged</small></span></label>
+              <label class="pay-option"><input type="radio" name="payment" value="CARD_SIMULATED"><i class="fa-regular fa-credit-card" aria-hidden="true"></i><span><strong>Card (simulation)</strong><small>No card details are collected</small></span></label>
+            </div>
+            <div class="sim-banner hidden" id="sim-banner" role="note">SIMULATED PAYMENT: no real money is processed<small>This is a demo project. We never ask for card numbers, CVV or UPI PINs.</small></div>
+          </fieldset>
+          <button class="btn btn-primary btn-block" id="place-order" type="submit" style="min-height:52px;font-size:1.05rem">Place Order</button>
+        </form>
+        <aside class="card summary" aria-label="Order summary" id="summary"><div class="skeleton" style="height:240px" aria-hidden="true"></div></aside>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/checkout.js"></script>
+</body>
+</html>

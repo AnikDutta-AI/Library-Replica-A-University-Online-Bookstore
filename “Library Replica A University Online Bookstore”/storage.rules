@@ -1,0 +1,47 @@
+rules_version = '2';
+
+// LibraryReplica Storage rules.
+// Book covers / previews: public read, admin-only write with size + type limits.
+// Profile photos (users/{uid}/...): writable only by the owner with size + type limits.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Reads the role from Firestore (cross-service rule). Requires Firestore in the same project.
+    function isAdmin() {
+      return isSignedIn()
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isImageUpload() {
+      return request.resource.contentType.matches('image/(jpeg|png|webp)')
+        && request.resource.size <= 2 * 1024 * 1024;
+    }
+
+    function isPdfUpload() {
+      return request.resource.contentType == 'application/pdf'
+        && request.resource.size <= 10 * 1024 * 1024;
+    }
+
+    match /book-covers/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isImageUpload();
+      allow delete: if isAdmin();
+    }
+
+    match /book-previews/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isPdfUpload();
+      allow delete: if isAdmin();
+    }
+
+    match /users/{uid}/{fileName} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin());
+      allow write: if isSignedIn() && request.auth.uid == uid && isImageUpload();
+      allow delete: if isSignedIn() && request.auth.uid == uid;
+    }
+  }
+}

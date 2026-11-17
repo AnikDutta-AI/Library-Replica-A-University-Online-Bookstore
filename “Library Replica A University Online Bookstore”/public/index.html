@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LibraryReplica | Your Academic World, One Book Away</title>
+  <meta name="description" content="LibraryReplica is an independent academic project: a university online bookstore with sample catalogue, cart, wishlist and simulated checkout.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-inner">
+          <img class="hero-logo" src="images/logo.svg" alt="LibraryReplica logo">
+          <span class="hero-eyebrow">Your Academic World, One Book Away.</span>
+          <h1 id="hero-title">Discover Your Next Academic Read.</h1>
+          <p class="lead">Explore thousands of academic books across engineering, science, technology and more.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="departments.html">Explore Library <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="btn btn-outline" href="signup.html">Get Started</a>
+          </div>
+          <div class="hero-stats" aria-label="Catalogue statistics">
+            <div><strong id="stat-books">960</strong><span>Sample books</span></div>
+            <div><strong>16</strong><span>Categories</span></div>
+            <div><strong>12</strong><span>Departments</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="popular-title">
+      <div class="container">
+        <div class="section-title reveal"><h2 id="popular-title">Popular Books</h2><a class="btn btn-outline btn-sm" href="books.html?sort=popular">View all</a></div>
+        <div id="popular-books" class="books-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="dept-title">
+      <div class="container">
+        <div class="section-title reveal"><h2 id="dept-title">Explore Departments</h2><a class="btn btn-outline btn-sm" href="departments.html">All departments</a></div>
+        <div id="home-departments" class="grid" style="--min:230px"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-title reveal"><h2 id="featured-title">Featured Categories</h2><p>All 16 catalogue categories, 60 books each</p></div>
+        <div id="featured-categories" class="chip-row reveal"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-title reveal"><h2 id="why-title">Why Choose LibraryReplica?</h2></div>
+        <div class="grid" style="--min:250px">
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div><h3>Organised by department</h3><p>Find books for your exact department and specialization in a couple of clicks.</p></article>
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-regular fa-file-pdf" aria-hidden="true"></i></div><h3>Sample previews</h3><p>Open sample PDFs right inside the page before you decide to buy.</p></article>
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div><h3>Smart search and filters</h3><p>Search by title, author, subject or ISBN and refine by price, rating and availability.</p></article>
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div><h3>Safe simulated checkout</h3><p>Practise the full buying journey. No real money or card details are ever handled.</p></article>
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-solid fa-moon" aria-hidden="true"></i></div><h3>Comfortable reading modes</h3><p>Switch between light and dark themes. Your choice is remembered.</p></article>
+          <article class="card feature reveal"><div class="dept-icon"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></div><h3>Works on every screen</h3><p>Responsive layouts for phones, tablets and desktops.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-title reveal"><h2 id="benefits-title">Student Benefits</h2></div>
+        <div class="grid" style="--min:230px">
+          <article class="card reveal"><h3><i class="fa-solid fa-tags" aria-hidden="true" style="color:var(--gold-500)"></i> Student pricing</h3><p class="text-muted">Discounts up to 30% on sample titles.</p></article>
+          <article class="card reveal"><h3><i class="fa-solid fa-truck-fast" aria-hidden="true" style="color:var(--gold-500)"></i> Free delivery</h3><p class="text-muted">On orders above ₹999 (simulated).</p></article>
+          <article class="card reveal"><h3><i class="fa-regular fa-heart" aria-hidden="true" style="color:var(--gold-500)"></i> Wishlist</h3><p class="text-muted">Save books for later and move them to your cart in one tap.</p></article>
+          <article class="card reveal"><h3><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true" style="color:var(--gold-500)"></i> Recommendations</h3><p class="text-muted">Suggestions based on your department and what you viewed.</p></article>
+        </div>
+        <div class="cta-band reveal mt-3">
+          <h2>Ready to build your reading list?</h2>
+          <p>Create a free student account and explore the library.</p>
+          <a class="btn btn-primary" href="signup.html">Create your account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="js/pages/index.js"></script>
+</body>
+</html>
